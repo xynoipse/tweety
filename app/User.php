@@ -51,6 +51,11 @@ class User extends Authenticatable
             ->latest()->get();
     }
 
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+
     public function follow(User $user)
     {
         return $this->follows()->save($user);
