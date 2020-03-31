@@ -1,31 +1,30 @@
-<div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
+<div class="border border-blue-400 rounded-lg px-8 pt-6 pb-4 mb-8">
     <form action="/tweets" method="POST">
         @csrf
 
         <textarea 
-            class="w-full"
             name="body"
             placeholder="What's up?"
             required
+            class="w-full outline-none"
         >
         </textarea>
 
-        <hr class="my-4">
+        <hr class="mt-4 mb-2">
 
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
 
             <img 
                 src="{{ auth()->user()->avatar }}" 
                 alt="Avatar"
-                class="rounded-full mr-2"
-                width="50" height="50"
+                class="rounded-full w-8 h-8"
             >
 
             <button 
                 type="submit"
-                class="bg-blue-500 rounded-lg shadow p-2 text-white"
+                class="bg-blue-500 rounded-lg shadow py-2 px-6 text-white text-sm"
             >
-                Tweet!
+                Tweet
             </button>
 
         </div>

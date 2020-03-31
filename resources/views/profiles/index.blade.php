@@ -5,7 +5,7 @@
         <img 
             src="{{ asset('images/default-profile-banner.jpg') }}" 
             alt="Profile Banner"
-            class="mb-2 rounded-lg"
+            class="rounded-lg w-full mb-2"
         >
 
         <div class="flex justify-between items-center mb-4">
@@ -27,10 +27,9 @@
         <img
             src="{{ $user->avatar }}"
             alt="Avatar"
-            class="rounded-full mr-2 absolute"
-            style="width: 150px; left: calc(50% - 75px); top:135px"
+            class="rounded-full absolute"
+            style="width: 125px; left: 50%; transform: translateX(-50%); top:145px"
         >
-
         
     </header>
 
