@@ -12,6 +12,7 @@
                             src="{{ $user->avatar }}"
                             alt="Avatar"
                             class="rounded-full mr-2"
+                            width="40" height="40"
                         >
                         {{ $user->name }}
                     </a>

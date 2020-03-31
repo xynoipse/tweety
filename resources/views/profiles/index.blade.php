@@ -1,7 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-    profile page for {{ $user->name }}
+    <header class="mb-6 relative">
+        <img 
+            src="{{ asset('images/default-profile-banner.jpg') }}" 
+            alt="Profile Banner"
+            class="mb-2 rounded-lg"
+        >
+
+        <div class="flex justify-between items-center mb-4">
+            <div>
+                <h2 class="font-bold text-2xl">{{ $user->name }}</h2>
+                <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
+            </div>
+
+            <div>
+                <a href="" class="rounded-full border border-gray-300 py-2 px-6 text-black text-sm">Edit Profile</a>
+                <a href="" class="bg-blue-500 rounded-full shadow py-2 px-6 text-white text-sm">Follow Me</a>
+            </div>
+        </div>
+
+        <p class="text-sm text-center">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil deserunt beatae est deleniti tempore architecto ab corrupti autem magni ullam dolor, atque aliquam maiores harum, porro dicta sint numquam maxime quisquam error neque odio culpa sit eaque? Aliquam, sapiente reprehenderit!
+        </p>
+
+        <img
+            src="{{ $user->avatar }}"
+            alt="Avatar"
+            class="rounded-full mr-2 absolute"
+            style="width: 150px; left: calc(50% - 75px); top:135px"
+        >
+
+        
+    </header>
 
     @include('_timeline', [
         'tweets' => $user->tweets
