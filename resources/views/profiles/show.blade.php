@@ -2,13 +2,23 @@
 
 @section('app-content')
     <header class="mb-6 relative">
-        <img 
-            src="{{ asset('images/default-profile-banner.jpg') }}" 
-            alt="Profile Banner"
-            class="rounded-lg w-full mb-2"
-        >
 
-        <div class="flex justify-between items-center mb-4">
+        <div class="relative">
+            <img 
+                src="{{ asset('images/default-profile-banner.jpg') }}" 
+                alt="Profile Banner"
+                class="rounded-lg w-full mb-2"
+            >
+
+            <img
+                src="{{ $user->avatar }}"
+                alt="Avatar"
+                class="rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
+                width="150"
+            >
+        </div>
+
+        <div class="flex justify-between items-center mb-6">
             <div>
                 <h2 class="font-bold text-2xl">{{ $user->name }}</h2>
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
@@ -35,14 +45,7 @@
         <p class="text-sm text-center">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil deserunt beatae est deleniti tempore architecto ab corrupti autem magni ullam dolor, atque aliquam maiores harum, porro dicta sint numquam maxime quisquam error neque odio culpa sit eaque? Aliquam, sapiente reprehenderit!
         </p>
-
-        <img
-            src="{{ $user->avatar }}"
-            alt="Avatar"
-            class="rounded-full absolute"
-            style="width: 125px; left: 50%; transform: translateX(-50%); top:145px"
-        >
-        
+    
     </header>
 
     @include('_timeline', [
