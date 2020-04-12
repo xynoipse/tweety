@@ -25,7 +25,6 @@
             </div>
 
             <div class="flex ml-1">
-
                 @if (auth()->user()->is($user))
                     <a 
                         href=""
@@ -35,10 +34,7 @@
                     </a>
                 @endif
                 
-                @unless (auth()->user()->is($user))
-                    <x-follow-button :user="$user"></x-follow-button>
-                @endunless
-                
+                <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
 
