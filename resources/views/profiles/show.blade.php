@@ -25,15 +25,15 @@
             </div>
 
             <div class="flex ml-1">
-                @if (current_user()->is($user))
+                @can('edit', $user)
                     <a 
-                        href=""
+                        href="{{ route('profile.edit', current_user()) }}"
                         class="rounded-full border border-gray-300 py-2 px-6 text-black text-sm"
                     >
                         Edit Profile
                     </a>
-                @endif
-                
+                @endcan
+                    
                 <x-follow-button :user="$user"></x-follow-button>
             </div>
         </div>
