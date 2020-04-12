@@ -25,7 +25,7 @@
             </div>
 
             <div class="flex ml-1">
-                @if (auth()->user()->is($user))
+                @if (current_user()->is($user))
                     <a 
                         href=""
                         class="rounded-full border border-gray-300 py-2 px-6 text-black text-sm"
