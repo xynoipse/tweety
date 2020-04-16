@@ -31,13 +31,7 @@ class ProfileController extends Controller
 
 		$data['image'] = request('image')->store('profile_images');
 
-		$user->update([
-			'username' => $data['username'],
-			'name' => $data['name'],
-			'image' => $data['image'],
-			'email' => $data['email'],
-			'password' => Hash::make($data['password'])
-		]);
+		$user->update($data);
 		
         return redirect()->route('profile', $user);
     }
