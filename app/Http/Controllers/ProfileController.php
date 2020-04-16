@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
@@ -20,14 +21,20 @@ class ProfileController extends Controller
 
     public function update(User $user)
     {
-        $attributes = request()->validate([
+        $data = request()->validate([
             'username' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user), 'alpha_dash'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        $user->update($attributes);
+		$user->update([
+			'username' => $data['username'],
+			'name' => $data['name'],
+			'email' => $data['email'],
+			'password' => Hash::make($data['password'])
+		]);
+		
         return redirect()->route('profile', $user);
     }
 }
