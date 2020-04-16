@@ -55,7 +55,6 @@
 					type="file" id="image"
 					name="image"
 					class="border border-gray-400  p-2 w-full"
-					required
 				>
 
 				<img 

@@ -29,7 +29,9 @@ class ProfileController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-		$data['image'] = request('image')->store('profile_images');
+		if (request('image')) {
+			$data['image'] = request('image')->store('profile_images');
+		}
 
 		$user->update($data);
 		
