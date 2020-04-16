@@ -23,14 +23,18 @@ class ProfileController extends Controller
     {
         $data = request()->validate([
             'username' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user), 'alpha_dash'],
-            'name' => ['required', 'string', 'max:255'],
+			'name' => ['required', 'string', 'max:255'],
+			'image' => ['image', 'dimensions:min_width=100,min_height=200'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
+		$data['image'] = request('image')->store('profile_images');
+
 		$user->update([
 			'username' => $data['username'],
 			'name' => $data['name'],
+			'image' => $data['image'],
 			'email' => $data['email'],
 			'password' => Hash::make($data['password'])
 		]);

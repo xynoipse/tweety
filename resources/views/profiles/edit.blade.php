@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('app-content')
-    <form action="{{ route('profile.update', $user) }}" method="POST">
+    <form action="{{ route('profile.update', $user) }}" method="POST" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
 
@@ -39,6 +39,33 @@
             >
             
             @error('username')
+                <p class="text-red-500 text-xs mt-2">
+                    {{ $message }}
+                </p>
+            @enderror
+		</div>
+		
+		<div class="mb-6">
+            <label for="image" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                Profile Image
+            </label>
+
+			<div class="flex">
+				<input 
+					type="file" id="image"
+					name="image"
+					class="border border-gray-400  p-2 w-full"
+					required
+				>
+
+				<img 
+					src="{{ $user->image }}" 
+					alt="Profile Image"
+					width="40"
+				>
+			</div>
+           
+            @error('image')
                 <p class="text-red-500 text-xs mt-2">
                     {{ $message }}
                 </p>
