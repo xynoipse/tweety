@@ -9,8 +9,8 @@
                         class="flex items-center text-sm"
                     >
                         <img
-                            src="{{ $user->avatar }}"
-                            alt="Avatar"
+                            src="{{ $user->image }}"
+                            alt="Profile Image"
                             class="rounded-full w-10 h-10 mr-2"
                         >
                         {{ $user->name }}

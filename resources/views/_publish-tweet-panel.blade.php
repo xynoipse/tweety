@@ -15,8 +15,8 @@
         <div class="flex justify-between items-center">
 
             <img 
-                src="{{ auth()->user()->avatar }}" 
-                alt="Avatar"
+                src="{{ auth()->user()->image }}" 
+                alt="Profile Image"
                 class="rounded-full w-8 h-8"
             >
 
