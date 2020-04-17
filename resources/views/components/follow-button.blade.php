@@ -1,5 +1,5 @@
 @unless (current_user()->is($user))
-<form method="POST" action="{{ route('follow', $user->name) }}">
+<form method="POST" action="{{ route('follow', $user->username) }}">
     @csrf
     <button 
         type="submit"
