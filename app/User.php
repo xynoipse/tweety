@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function getImageAttribute($value)
     {
-        return asset('storage/' . $value);
+        return asset($value ? 'storage/'.$value : '/images/default_profile.png');
 	}
 	
 	public function setPasswordAttribute($value)

@@ -5,7 +5,7 @@
 
         <div class="relative">
             <img 
-                src="{{ asset('images/default-profile-banner.jpg') }}" 
+                src="{{ asset('images/default_banner.jpg') }}" 
                 alt="Profile Banner"
                 class="rounded-lg w-full mb-2"
             >
