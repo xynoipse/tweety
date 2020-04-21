@@ -10,7 +10,10 @@ class ProfileController extends Controller
 {
     public function index(User $user)
     {
-        return view('profiles.show', compact('user'));
+        return view('profiles.show', [
+            'user' => $user,
+            'tweets' => $user->tweets()->paginate(50)
+        ]);
     }
 
     public function edit(User $user)

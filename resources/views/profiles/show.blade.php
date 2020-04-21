@@ -44,7 +44,5 @@
     
     </header>
 
-    @include('_timeline', [
-        'tweets' => $user->tweets
-    ])
+    @include('_timeline')
 @endsection
