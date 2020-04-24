@@ -63,6 +63,11 @@ class User extends Authenticatable
             ->latest();
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'username';

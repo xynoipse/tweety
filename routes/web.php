@@ -19,6 +19,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', 'TweetController@index')->name('home');
     Route::post('/tweet', 'TweetController@store')->name('tweet');
 
+    Route::post('/tweets/{tweet}/like', 'TweetLikesController@like')->name('tweet.like');
+    Route::patch('/tweets/{tweet}/like', 'TweetLikesController@dislike')->name('tweet.dislike');
+
     Route::post('/profile/{user}/follow', 'FollowController@store')->name('follow');
     
     Route::middleware('can:edit,user')->group(function () {
