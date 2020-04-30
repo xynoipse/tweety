@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto flex justify-center">
-    <div class="px-12 py-8 bg-gray-200 rounded-lg w-2/6">
+    <div class="px-12 py-8 bg-gray-200 rounded-lg lg:w-2/6">
         <div class="font-bold text-lg mb-4">Register</div>
 
         <form method="POST" action="{{ route('register') }}">
