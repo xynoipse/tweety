@@ -16,22 +16,22 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', 'TweetController@index')->name('home');
-    Route::post('/tweet', 'TweetController@store')->name('tweet');
+    Route::get('/home', 'TweetsController@index')->name('home');
+    Route::post('/tweet', 'TweetsController@store')->name('tweet');
 
     Route::post('/tweets/{tweet}/like', 'TweetLikesController@like')->name('tweet.like');
     Route::patch('/tweets/{tweet}/like', 'TweetLikesController@dislike')->name('tweet.dislike');
 
-    Route::post('/profile/{user}/follow', 'FollowController@store')->name('follow');
+    Route::post('/profile/{user}/follow', 'FollowsController@store')->name('follow');
     
     Route::middleware('can:edit,user')->group(function () {
-        Route::get('/profile/{user}/edit', 'ProfileController@edit')->name('profile.edit');
-        Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
+        Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
+        Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
     });
 
     Route::get('/explore', 'ExploreController')->name('explore');
 });
   
-Route::get('/profile/{user}', 'ProfileController@index')->name('profile');
+Route::get('/profile/{user}', 'ProfilesController@index')->name('profile');
 
 Auth::routes();

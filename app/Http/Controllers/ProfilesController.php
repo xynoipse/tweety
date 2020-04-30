@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class ProfileController extends Controller
+class ProfilesController extends Controller
 {
     public function index(User $user)
     {
